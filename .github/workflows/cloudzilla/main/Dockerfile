@@ -31,7 +31,7 @@ RUN react-scripts build
 FROM nginx:alpine
 
 # Copy the built files from the previous stage
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/ /usr/share/nginx/html
 
 # Copy a custom NGINX configuration file
 COPY .github/workflows/cloudzilla/main/nginx.conf /etc/nginx/conf.d/default.conf
